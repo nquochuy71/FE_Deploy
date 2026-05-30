@@ -240,15 +240,6 @@ export const ProductDetail: React.FC = () => {
   };
 
 
-
-  const detailTags = [
-    categoryName,
-    brandName,
-    product.isFeatured ? 'Nổi bật' : null,
-    activeVariant?.variantName || null,
-    activeVariant?.stockQuantity && activeVariant.stockQuantity > 0 ? 'Còn hàng' : 'Hết hàng',
-  ].filter((value): value is string => Boolean(value));
-
   const renderStars = (rating: number) => {
     return (
       <>

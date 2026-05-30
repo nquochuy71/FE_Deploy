@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { reviewApi } from '../../api/reviewApi';
 import { uploadApi } from '../../api/uploadApi';
-import { useAuthStore } from '../../store/authStore';
 import type { ReviewRequest, ReviewResponse } from '../../types/review';
 
 interface ReviewFormProps {
@@ -16,7 +15,6 @@ interface ReviewFormProps {
 
 export const ReviewForm: React.FC<ReviewFormProps> = ({ productId, orderItemId, customerId, existingReview, onSuccess, onCancel }) => {
   const queryClient = useQueryClient();
-  const { user } = useAuthStore();
   
   const [rating, setRating] = useState<number>(existingReview?.rating || 5);
   const [comment, setComment] = useState<string>(existingReview?.comment || '');

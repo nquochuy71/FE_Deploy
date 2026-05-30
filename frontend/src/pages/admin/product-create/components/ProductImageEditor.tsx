@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent, type DragEvent } from 'react';
-import { GripVertical, ImagePlus, Plus, Sparkles, Trash2 } from 'lucide-react';
+import { GripVertical, ImagePlus, Plus, Trash2 } from 'lucide-react';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { FieldShell } from './FieldShell';
 import type { ProductCreateFormValues } from '../productCreate.schema';

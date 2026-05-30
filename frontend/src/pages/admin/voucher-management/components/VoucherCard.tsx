@@ -2,7 +2,7 @@ import { useMemo, useRef } from 'react';
 import { BadgeDollarSign, Copy, MoreVertical, Percent, Sparkles, Truck } from 'lucide-react';
 import { useClickOutside } from '../hooks/useClickOutside';
 import type { Voucher } from '../types';
-import { typeToneMap, voucherTypeLabels } from '../voucherData';
+import { typeToneMap } from '../voucherData';
 import { VoucherActionMenu } from './VoucherActionMenu';
 import { VoucherStatusBadge } from './VoucherStatusBadge';
 

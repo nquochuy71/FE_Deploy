@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent, type ChangeEvent, type DragEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type FormEvent, type ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BadgeCheck,
@@ -12,8 +12,7 @@ import {
   Search,
   X,
   Users,
-  LayoutTemplate,
-  Upload
+  LayoutTemplate
 } from 'lucide-react';
 import { uploadSingleMedia } from '../../api/uploadApi';
 // @ts-ignore - optional dependency, install `react-select` + `react-select-country-list` to enable enhanced selects
@@ -1746,11 +1745,7 @@ useEffect(() => {
     event.target.value = '';
   };
 
-  const onBrandDrop = (event: DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    const file = event.dataTransfer.files?.[0] || null;
-    selectBrandImage(file);
-  };
+
 
   const openBrandFilePicker = () => brandFileInputRef.current?.click();
   const openCategoryFilePicker = () => categoryFileInputRef.current?.click();
@@ -2098,7 +2093,7 @@ useEffect(() => {
                       placeholder="Chọn quốc gia"
                       styles={{
                         ...reactSelectStyles,
-                        control: (base) => ({ ...base, borderColor: '#94a3b8', padding: '4px' })
+                        control: (base: any) => ({ ...base, borderColor: '#94a3b8', padding: '4px' })
                       }}
                       className="w-full"
                     />
@@ -2224,7 +2219,7 @@ useEffect(() => {
                     isClearable
                     styles={{
                       ...reactSelectStyles,
-                      control: (base) => ({ ...base, borderColor: '#94a3b8', padding: '4px' })
+                      control: (base: any) => ({ ...base, borderColor: '#94a3b8', padding: '4px' })
                     }}
                     placeholder="Chọn danh mục cha (nếu có)"
                   />

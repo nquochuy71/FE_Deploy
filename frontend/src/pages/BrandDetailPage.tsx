@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { brandApi } from '../api/brandApi';
 import { productApi } from '../api/productApi';
 import { useApi } from '../hooks/useApi';
@@ -26,7 +26,6 @@ const getMonogram = (name: string): string => {
 
 export const BrandDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
 
   if (!slug) return <div className="text-center py-12 text-gray-500 font-medium">Không tìm thấy thương hiệu</div>;
 

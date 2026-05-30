@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { aiApi } from '../api/aiApi';
 import { useChatStore } from '../store/chatStore';
-import type { ChatMessage, SendChatRequest, SendChatResponse } from '../types/ai';
+import type { ChatMessage, SendChatResponse } from '../types/ai';
 
 const getErrorMessage = (error: unknown) => {
   if (typeof error === 'string') {
@@ -34,7 +34,7 @@ export const useChat = () => {
       const tempMessageId = appendOptimisticMessage(variables.message);
       return { tempMessageId };
     },
-    onSuccess: (res, variables, context) => {
+    onSuccess: (res) => {
       const payload: SendChatResponse = res.data;
       if (!payload.reply) {
         setMessagesError('Phản hồi chat không hợp lệ. Vui lòng thử lại.');
@@ -56,7 +56,7 @@ export const useChat = () => {
       };
       appendMessages([assistantMessage]);
     },
-    onError: (error, variables, context) => {
+    onError: (error, _variables, context) => {
       if (context?.tempMessageId) {
         removeMessage(context.tempMessageId);
       }

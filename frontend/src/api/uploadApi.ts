@@ -1,5 +1,3 @@
-import { axiosClient } from './axiosClient';
-import type { ApiResponse } from '../types/api';
 import axios, { AxiosError } from 'axios';
 import { useAuthStore } from '../store/authStore';
 import { serviceBase } from './serviceBase';

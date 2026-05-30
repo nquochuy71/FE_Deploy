@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Plus, X } from 'lucide-react';
+import { useMemo } from 'react';
+import { X } from 'lucide-react';
 import { useFormContext } from 'react-hook-form';
 import { FieldShell } from './FieldShell';
 import type { ProductCreateFormValues } from '../productCreate.schema';
@@ -8,13 +8,12 @@ type TagInputProps = {
   name: 'suitableSkinTypes' | 'skinConcerns';
   label: string;
   hint?: string;
-  placeholder: string;
+  placeholder?: string;
   suggestions: string[];
 };
 
-export const TagInput = ({ name, label, hint, placeholder, suggestions }: TagInputProps) => {
+export const TagInput = ({ name, label, hint, suggestions }: TagInputProps) => {
   const { watch, setValue, formState } = useFormContext<ProductCreateFormValues>();
-  const [draft, setDraft] = useState('');
   const items = watch(name) || [];
   const fieldError = useMemo(() => {
     const error = formState.errors[name];
@@ -28,7 +27,6 @@ export const TagInput = ({ name, label, hint, placeholder, suggestions }: TagInp
     }
 
     setValue(name, [...items, nextValue], { shouldDirty: true, shouldValidate: true });
-    setDraft('');
   };
 
   const removeItem = (value: string) => {

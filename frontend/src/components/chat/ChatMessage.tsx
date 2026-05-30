@@ -1,9 +1,9 @@
-import type { ChatMessage } from '../../types/ai';
+import type { ChatMessage as ChatMessageType } from '../../types/ai';
 
 import { SuggestedProducts } from './SuggestedProducts';
 
 interface ChatMessageProps {
-  message: ChatMessage;
+  message: ChatMessageType;
 }
 
 export const ChatMessage = ({ message }: ChatMessageProps) => {

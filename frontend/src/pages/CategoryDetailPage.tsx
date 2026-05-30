@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { categoryApi } from '../api/categoryApi';
 import { productApi } from '../api/productApi';
 import { useApi } from '../hooks/useApi';
 import ProductCard from '../components/ProductCard';
-import {Home, ChevronRight, SlidersHorizontal, ChevronDown, PackageOpen } from 'lucide-react';
+import {Home, ChevronRight, ChevronDown, PackageOpen } from 'lucide-react';
 import type { CategoryResponse } from '../types/catalog';
 import type { Product } from '../types/product';
 import type { PageResponse } from '../types/api';
@@ -19,7 +19,6 @@ const MOCK_CATEGORY: CategoryResponse = {
 
 export const CategoryDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
 
   type SortOption = 'default' | 'priceAsc' | 'priceDesc';
 
@@ -106,11 +105,7 @@ export const CategoryDetailPage: React.FC = () => {
     return sorted;
   }, [products, sortOption]);
 
-  const sortLabelMap = {
-    default: 'Phổ biến',
-    priceAsc: 'Giá tăng dần',
-    priceDesc: 'Giá giảm dần'
-  };
+
 
   if (loading) {
     return (

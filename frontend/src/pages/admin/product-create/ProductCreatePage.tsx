@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, CheckCircle2, Flame, Leaf } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Leaf } from 'lucide-react';
 import { Controller, FormProvider, useForm, useWatch, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Link, useNavigate } from 'react-router-dom';
@@ -115,7 +115,7 @@ export const ProductCreatePage = () => {
 
         setCategoryOptions(categorySummaries);
         setBrandOptions(brandSummaries);
-      } catch (error) {
+      } catch {
         if (active) {
           toast.error('Không thể tải danh mục hoặc thương hiệu thật từ hệ thống.');
         }
@@ -376,7 +376,6 @@ export const ProductCreatePage = () => {
 
                 <FieldShell label="Hướng dẫn sử dụng" error={form.formState.errors.usageInstructions?.message}>
                   <Controller
-                  style={{ border: '1px solid #8691a2' }}
                     control={form.control}
                     name="usageInstructions" 
                     render={({ field }) => (

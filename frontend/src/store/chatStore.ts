@@ -20,7 +20,7 @@ interface ChatStoreState {
 
 export const useChatStore = create<ChatStoreState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
   currentSessionId: null,
   messages: [],
   messagesLoading: false,

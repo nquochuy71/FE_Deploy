@@ -41,7 +41,7 @@ export const ChatWidget = () => {
             </button>
           </div>
           <div className="h-[calc(90vh-72px)] p-6">
-            <ChatExperience variant="widget" showHeader={false} />
+            <ChatExperience showHeader={false} />
           </div>
         </div>
       )}

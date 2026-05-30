@@ -9,12 +9,10 @@ import { ChatThread } from './ChatThread';
 
 
 interface ChatExperienceProps {
-  variant?: 'page' | 'widget';
   showHeader?: boolean;
 }
 
 export const ChatExperience = ({
-  variant = 'page',
   showHeader = true,
 }: ChatExperienceProps) => {
   const user = useAuthStore((state) => state.user);
@@ -104,7 +102,6 @@ export const ChatExperience = ({
     });
   };
 
-  const isWidget = variant === 'widget';
   const gridClassName = 'grid gap-6';
 
   return (
