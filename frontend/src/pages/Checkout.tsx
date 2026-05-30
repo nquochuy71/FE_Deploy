@@ -262,7 +262,6 @@ export const Checkout = () => {
         };
 
         fetchInitialData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isAuthenticated, user, navigate]);
 
     const calculateSubtotal = () => {
