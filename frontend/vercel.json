@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://quochuy9.id.vn/api/v1/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
